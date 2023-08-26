@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='main.css')}}"> 
+    <title> {{rootname }}</title>
+    
+</head>
+ 
+<body>
+<h1>my first app</h1>
+<img id= "banner" src="{{ url_for('static',filename='ai_image.jpg')}}" alt="Girl in a jacket" height="100">
+<div>
+{%for job in jobs %}
+<div class="job">  
+<h4>{{job["title"]}}</h4>
+<div><b>location</b> {{job.location}} </div>
+{% if salary in job %}
+<div><b>salary </b><span>$</span>{{job.salary}}</div>
+{% else %}
+<div><b>salary </b>not reported</div>
+{% endif %}
+</div> 
+  {%endfor%}
+</div>  
+
+  
+
+</body>
+</html>
